@@ -12,12 +12,17 @@ import { signOut } from 'firebase/auth';
 import { showMessage } from 'react-native-flash-message';
 import { AppColors } from '../../styles/colors';
 import { SheetManager } from 'react-native-actions-sheet';
+import { t } from 'i18next';
 import LanguageBottomSheet from '../../components/language/LanguageBottomSheet';
+import { useTranslation } from 'react-i18next';
+
+
+
 const ProfileScreen = () => {
   const navigation = useNavigation();
   const [userName, setUserName] = useState('');
-
-  // Met à jour le nom en temps réel à chaque retour sur l'écran
+  const {t}=useTranslation()
+ 
   useFocusEffect(
     useCallback(() => {
       const user = auth.currentUser;
@@ -31,22 +36,22 @@ const ProfileScreen = () => {
   );
 
   const handleLogout = () => {
-    Alert.alert(
-      'Confirm Logout',
-      'Are you sure you want to log out?',
+    Alert.alert( 
+      t('Confirm Logout'),
+      t("Are you sure you want to logout?"),
       [
-        { text: 'No', style: 'cancel' },
+        { text: t('No'), style: t('cancel' )},
         {
-          text: 'Yes',
+          text: t('Yes'),
           onPress: async () => {
             try {
               await signOut(auth);
               showMessage({
                 type: 'success',
-                message: 'Logout successful',
+                message: t("Logout successful"),
                 backgroundColor: '#28a745',
                 color: '#fff',
-              });
+              }); 
               navigation.reset({
                 index: 0,
                 routes: [{ name: 'AuthStack' }],
@@ -65,25 +70,28 @@ const ProfileScreen = () => {
   return (
     <AppSaveView style={styles.container}>
       <HomeHeader />
-
+    
       <AppText style={styles.welcomeText}>
-        👋 Hello, {userName}
+        {t("👋 Hello")}, {userName}
       </AppText>
-
+      
       <View style={styles.buttonsContainer}>
         <ProfileSectionButton
-          title="✏️  Edit Username"
+          title={t("✏️  Edit Username")}
           onPress={() => navigation.navigate('EditProfileScreen')}
         />
         <ProfileSectionButton
-          title="🌍  Language"
+          title={t("Language")}
           onPress={() => SheetManager.show("LANG_SHEET")}
         />
         <LanguageBottomSheet />
         <ProfileSectionButton
-          title="🚪  Logout"
+          title={t("Logout")}
           onPress={handleLogout}
         />
+        <AppText>{t("welcome", {userName:"Israell"})}</AppText>
+        <AppText>{t("common.messages.welcome")}</AppText>
+      
       </View>
 
       

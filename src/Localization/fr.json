@@ -1,0 +1,82 @@
+{
+    
+    "welcome": "Bienvenue",
+    "Login to your account": "Connectez-vous à votre compte",
+    "Email": "E-mail",
+    "Password": "Mot de passe",
+    "Forgot password?": "Mot de passe oublié ?",
+    "signin button": "Se connecter",
+    "signup button": "S'inscrire",
+    "Don't have an account?": "Vous n'avez pas de compte ?",
+    "Sign Up": "S'inscrire",
+    "Login successful": "Connexion réussie !",
+    "Wrong email. This email is not registered.": "E-mail incorrect. Cet e-mail n'est pas enregistré.",
+    "Wrong email or Password. Please try again.": "E-mail ou mot de passe incorrect. Veuillez réessayer.",
+    "An error occurred during login. Please try again.:": "Une erreur s'est produite lors de la connexion. Veuillez réessayer.",
+
+    "Register": "S'inscrire",
+    "Create your account": "Créez votre compte",
+    "Username": "Nom d'utilisateur",
+    "Email": "E-mail",
+    "Password": "Mot de passe",
+    "Confirm Password": "Confirmer le mot de passe",
+    "Already have an account?": "Vous avez déjà un compte ?",
+    "Sign In": "Se connecter",
+    "You can now register!": "Vous pouvez maintenant vous inscrire !",
+    "Registration successful!": "Inscription réussie !",
+   
+    "auth/email-already-in-use": "L'adresse e-mail est déjà utilisée.",
+    "auth/invalid-email": "Adresse e-mail invalide.",
+    "auth/weak-password": "Le mot de passe doit comporter au moins 6 caractères.",
+    "registration/generic-error": "Une erreur s'est produite lors de l'inscription. Veuillez réessayer plus tard.",
+
+
+    
+    "validation.username-required": "Le nom d'utilisateur est requis.",
+    "validation.invalid-email": "Adresse e-mail invalide.",
+    "validation.email-required": "L'adresse e-mail est requise.",
+    "validation.password-too-short": "Le mot de passe doit comporter au moins 6 caractères.",
+    "validation.password-required": "Le mot de passe est requis.",
+    "validation.passwords-dont-match": "Les mots de passe ne correspondent pas.",
+    "validation.confirm-password-required": "La confirmation du mot de passe est requise.",
+
+    "Forgot Password": "Mot de passe oublié",
+    "Enter your email to reset your password": "Entrez votre e-mail pour réinitialiser votre mot de passe",
+    "Enter your email": "Entrez votre e-mail",
+    "Reset Password": "Réinitialiser le mot de passe",
+    "Back to Login": "← Retour à la connexion",
+
+
+    "Control Devices": "Contrôle des dispositifs",
+    "Light": "Lumière",
+    "Thermostat": "Thermostat",
+    "Fan": "Ventilateur",
+    "Home": "Accueil",
+    "Notifications": "Notifications",
+    "Profile": "Profil",
+
+    "✏️  Edit Username": "✏️  Modifier le nom d'utilisateur",
+    "Language": "🌍  Langues",
+    "Logout": "🚪  Déconnexion",
+    "Are you sure you want to logout?": "Êtes-vous sûr de vouloir vous déconnecter?",
+    "Logout successful": "Déconnexion réussie",
+    "No": "Non",
+    "Yes": "Oui",
+    "Confirm Logout": "Confirmer la déconnexion",
+    "👋 Hello": "Salut",
+    "Edit Your Username":"Modifier le nom d'utilisateur",
+    "Save":"Sauvegarder",
+    "Name updated successfully!":"Nom mis à jour avec succès!",
+    "Failed to update name. Try again.":"Échec de la mise à jour du nom. Veuillez réessayer."
+    
+
+
+    
+
+
+
+
+
+
+
+}

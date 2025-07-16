@@ -1,19 +1,31 @@
 
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
+import i18n from "i18next"
+import { initReactI18next } from "react-i18next"
+import en from "./en.json"
+import fr from "./fr.json"
+import tr from "./tr.json"
+import es from "./es.json"
 
 const LANGUAGE={
     en:{
-
+        translation: en
     },
     fr:{
-
+        translation: fr
+    },
+    tr:{
+        translation: tr
+    },
+    es:{
+        translation: es
     }
+
+
 }
 
 i18n.use(initReactI18next).init({
     resources:LANGUAGE,
-    fallbackLng: "en",
+    fallbackLng: "fr",
     defaultNS: "translation",
     ns: ["translation"],
     react:{

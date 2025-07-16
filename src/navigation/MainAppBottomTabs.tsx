@@ -6,11 +6,14 @@ import { AppColors } from "../styles/colors";
 import { s, vs } from "react-native-size-matters"; // Importing size utilities for responsive design
 import {Ionicons} from '@expo/vector-icons'; // Importing Ionicons for tab icons
 import { IS_Android } from "../constants/constant";
+import { useTranslation } from "react-i18next"; // Importing useTranslation for internationalization
 
 const Tab = createBottomTabNavigator();
 
 export default function MainAppBottomTabs() {
+const { t } = useTranslation()
 return (
+    
     <Tab.Navigator
     
         screenOptions={{
@@ -29,8 +32,8 @@ return (
             options={{
                 tabBarIcon: ({ color, size }) => (
                     <Ionicons name="home" size={size} color={color}/>
-                ),
-                title: "Home", // Set the title for the Home tab
+                ), 
+                title: t("Home") // Set the title for the Home tab
             }}
             />
         
@@ -39,14 +42,14 @@ return (
                 tabBarIcon: ({ color, size }) => (
                     <Ionicons name="notifications" size={size} color={color}/>
                 ),
-                title: "Notifications", // Set the title for the Home tab
+                title: t("Notifications"), // Set the title for the Home tab
             }}/>
         <Tab.Screen name="Profile" component={profileScreen}
          options={{
                 tabBarIcon: ({ color, size }) => (
                     <Ionicons name="person" size={size} color={color}/>
                 ),
-                title: "Profile", // Set the title for the Home tab
+                title: t("Profile"), // Set the title for the Home tab
             }}/>
     </Tab.Navigator>
 

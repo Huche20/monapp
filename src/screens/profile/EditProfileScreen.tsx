@@ -9,19 +9,20 @@ import { updateProfile } from 'firebase/auth';
 import { showMessage } from 'react-native-flash-message';
 import { sharedPaddingHorizontal } from '../../styles/SharedStyles';
 import { AppColors } from '../../styles/colors';
+import { useTranslation } from 'react-i18next';
 
 const EditProfileScreen = () => {
   const navigation = useNavigation();
   const currentUser = auth.currentUser;
   const [name, setName] = useState(currentUser?.displayName || '');
-
+  const {t}=useTranslation()
   const handleSave = async () => {
     try {
       if (currentUser) {
         await updateProfile(currentUser, { displayName: name });
-
+        
         showMessage({
-          message: 'Name updated successfully!',
+          message: t('Name updated successfully!'),
           type: 'success',
           backgroundColor: '#28a745',
           color: 'white',
@@ -32,7 +33,7 @@ const EditProfileScreen = () => {
     } catch (error) {
       console.log('Update profile error:', error);
       showMessage({
-        message: 'Failed to update name. Try again.',
+        message: t('Failed to update name. Try again.'),
         type: 'danger',
       });
     }
@@ -40,10 +41,10 @@ const EditProfileScreen = () => {
 
   return (
     <AppSaveView style={styles.container}>
-      <Text style={styles.title}>Edit Your Username</Text>
-      <AppTextInput placeholder="Your username" value={name} onChangeText={setName} />
+      <Text style={styles.title}>{t("Edit Your Username")}</Text>
+      <AppTextInput placeholder={t("Votre nom d'utilisateur")} value={name} onChangeText={setName} />
       <AppButton
-        title="Save"
+        title={t("Save")}
         onPress={handleSave}
         style={styles.button}
         textColor={AppColors.pembe}

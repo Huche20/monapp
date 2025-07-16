@@ -14,6 +14,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../config/firebase'
 import { showMessage } from 'react-native-flash-message'
 import { Feather } from '@expo/vector-icons'
+import { useTranslation } from 'react-i18next'
 
 const SignInScreen = () => {
   const navigation = useNavigation()
@@ -31,7 +32,7 @@ const SignInScreen = () => {
 
       showMessage({
         type: 'success',
-        message: 'Login successful!',
+        message: t('Login successful'),
         backgroundColor: '#28a745',
         color: 'white',
       })
@@ -43,11 +44,11 @@ const SignInScreen = () => {
       console.log(error.code)
 
       if (error.code === "auth/user-not-found") {
-        errorMessage = "Wrong email. This email is not registered"
+        errorMessage = t("Wrong email. This email is not registered")
       } else if (error.code === "auth/invalid-credential") {
-        errorMessage = "Wrong email or Password. Please try again."
+        errorMessage = t("Wrong email or Password. Please try again.")
       } else {
-        errorMessage = "An error occurred during login. Please try again."
+        errorMessage = t("An error occurred during login. Please try again.")
       }
 
       showMessage({
@@ -57,12 +58,14 @@ const SignInScreen = () => {
     }
   }
 
+  const { t } = useTranslation()
+
   return (
     <AppSaveView style={styles.container}>
       <Text style={styles.mainText}>Smart Home{'\n'}Personal Assistant</Text>
       <Image source={IMAGES.appLogo} style={styles.logo} />
-      <Text style={styles.Welcome}>Welcome</Text>
-      <Text style={styles.Create}>Login to your account</Text>
+      <Text style={styles.Welcome}>{t("welcome")}</Text>
+      <Text style={styles.Create}>{t("Login to your account")}</Text>
 
       <Formik
         initialValues={{ email: '', password: '' }}
@@ -82,7 +85,7 @@ const SignInScreen = () => {
         }) => (
           <>
             <AppTextInput
-              placeholder="Email"
+              placeholder={t("Email")}
               onChangeText={handleChange('email')}
               onBlur={handleBlur('email')}
               value={values.email}
@@ -93,7 +96,7 @@ const SignInScreen = () => {
 
             <View style={{ width: '100%' }}>
               <AppTextInput
-                placeholder="Password"
+                placeholder={t("Password")}
                 secureTextEntry={!showPassword}
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
@@ -116,11 +119,11 @@ const SignInScreen = () => {
 
             {/* ✅ Forgot Password cliquable */}
             <TouchableOpacity onPress={() => navigation.navigate('ForgotPasswordScreen')}>
-              <Text style={styles.forgotText}>Forgot Password?</Text>
+              <Text style={styles.forgotText}>{t("Forgot password?")}</Text>
             </TouchableOpacity>
 
             <AppButton
-              title="Log In"
+              title={t("signin button")}
               style={styles.signIn}
               textColor={AppColors.pembe}
               onPress={handleSubmit}
@@ -130,12 +133,12 @@ const SignInScreen = () => {
       </Formik>
 
       <Text style={styles.Down}>
-        Don’t have an account?{' '}
+        {t("Don't have an account?")}{' '}
         <TouchableOpacity
           activeOpacity={0.4}
           onPress={() => navigation.navigate('SignUpScreen')}
         >
-          <Text style={styles.link}>Sign Up</Text>
+          <Text style={styles.link}>{t("signup button")}</Text>
         </TouchableOpacity>
       </Text>
     </AppSaveView>
@@ -178,7 +181,7 @@ const styles = StyleSheet.create({
   forgotText: {
     color: '#007BFF',
     fontSize: 16,
-    marginRight: 200,
+    marginRight: 180,
     marginBottom: vs(18),
     fontWeight: '700',
   },

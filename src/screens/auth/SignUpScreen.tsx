@@ -14,7 +14,7 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../../config/firebase'
 import { showMessage } from 'react-native-flash-message'
 import { Feather } from '@expo/vector-icons'
-
+import { useTranslation } from 'react-i18next'
 const SignUpScreen = () => {
   const navigation = useNavigation()
   const [showPassword, setShowPassword] = useState(false)
@@ -22,7 +22,7 @@ const SignUpScreen = () => {
 
   useEffect(() => {
     showMessage({
-      message: 'You can now register!',
+      message: t('You can now register!'),
       type: 'success',
     })
   }, [])
@@ -53,7 +53,7 @@ const SignUpScreen = () => {
 
       showMessage({
         type: 'success',
-        message: 'Registration successful!',
+        message: t("Registration successful!"),
         backgroundColor: '#28a745',
         color: '#fff',
       })
@@ -61,16 +61,17 @@ const SignUpScreen = () => {
       navigation.navigate('MainAppBottomTabs')
     } catch (error: any) {
       let errorMessage = ""
+      
+        if (error.code === "auth/email-already-in-use") {
+                  errorMessage = t("auth/email-already-in-use")
+          } else if (error.code === "auth/invalid-email") {
+            errorMessage = t("auth/invalid-email")
+          } else if (error.code === "auth/weak-password") {
+            errorMessage = t("auth/weak-password")
+          } else {
+            errorMessage = t("registration/generic-error")
+          }
 
-      if (error.code === "auth/email-already-in-use") {
-        errorMessage = "This email is already in use. Please try another email."
-      } else if (error.code === "auth/invalid-email") {
-        errorMessage = "Invalid email address."
-      } else if (error.code === 'auth/weak-password') {
-        errorMessage = "Password is too weak. Please use at least 6 characters."
-      } else {
-        errorMessage = "An error occurred during registration. Please try again."
-      }
 
       showMessage({
         type: 'danger',
@@ -79,12 +80,13 @@ const SignUpScreen = () => {
     }
   };
 
+  const { t } = useTranslation()
   return (
     <AppSaveView style={styles.container}>
       <Text style={styles.mainText}>Smart Home{'\n'}Personal Assistant</Text>
       <Image source={IMAGES.appLogo} style={styles.logo} />
-      <Text style={styles.register}>Register</Text>
-      <Text style={styles.Create}>Create your account</Text>
+      <Text style={styles.register}>{t("Register")}</Text> 
+      <Text style={styles.Create}>{t("Create your account")}</Text>
 
       <Formik
         initialValues={{ username: '', email: '', password: '', confirmPassword: '' }}
@@ -104,7 +106,7 @@ const SignUpScreen = () => {
         }) => (
           <>
             <AppTextInput
-              placeholder="Username"
+              placeholder={t("Nom d'utilisateur")}
               onChangeText={handleChange('username')}
               onBlur={handleBlur('username')}
               value={values.username}
@@ -114,7 +116,7 @@ const SignUpScreen = () => {
             )}
 
             <AppTextInput
-              placeholder="Email"
+              placeholder={t("Email")}
               onChangeText={handleChange('email')}
               onBlur={handleBlur('email')}
               value={values.email}
@@ -125,7 +127,7 @@ const SignUpScreen = () => {
 
             <View style={{ width: '100%' }}>
               <AppTextInput
-                placeholder="Password"
+                placeholder={t("Password")}
                 secureTextEntry={!showPassword}
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
@@ -144,7 +146,7 @@ const SignUpScreen = () => {
 
             <View style={{ width: '100%' }}>
               <AppTextInput
-                placeholder="Confirm Password"
+                placeholder={t("Confirm Password")}
                 secureTextEntry={!showConfirmPassword}
                 onChangeText={handleChange('confirmPassword')}
                 onBlur={handleBlur('confirmPassword')}
@@ -162,7 +164,7 @@ const SignUpScreen = () => {
             )}
 
             <AppButton
-              title="Sign Up"
+              title={t("Sign Up")}
               style={styles.signUp}
               textColor={AppColors.pembe}
               onPress={handleSubmit}
@@ -172,12 +174,12 @@ const SignUpScreen = () => {
       </Formik>
 
       <Text style={styles.Down}>
-        Already have an account?{' '}
+        {t("Already have an account?")}{' '}
         <TouchableOpacity
           activeOpacity={0.4}
           onPress={() => navigation.navigate('SignInScreen')}
         >
-          <Text style={styles.link}>Sign In</Text>
+          <Text style={styles.link}>{t("Sign In")}</Text>
         </TouchableOpacity>
       </Text>
     </AppSaveView>

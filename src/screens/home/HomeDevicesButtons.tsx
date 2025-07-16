@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, Switch, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
+
 
 type Props = {
   deviceStates: {
@@ -19,17 +21,18 @@ type Props = {
 };
 
 const HomeDevicesButtons: React.FC<Props> = ({ deviceStates, setDeviceStates }) => {
+  const { t } = useTranslation()
   return (
     <View style={styles.section}>
-      <Text style={styles.title}>Control Devices</Text>
-
+      <Text style={styles.title}>{t("Control Devices")}</Text>
+    
       <View style={styles.deviceRow}>
         <MaterialCommunityIcons
           name="lightbulb"
           size={24}
           color={deviceStates.light ? '#FFD700' : '#555'}
         />
-        <Text style={styles.label}>Light</Text>
+        <Text style={styles.label}>{t("Light")}</Text>
         <Switch
           value={deviceStates.light}
           onValueChange={() =>
@@ -44,7 +47,7 @@ const HomeDevicesButtons: React.FC<Props> = ({ deviceStates, setDeviceStates }) 
           size={22}
           color={deviceStates.fan ? '#00BFFF' : '#555'}
         />
-        <Text style={styles.label}>Fan</Text>
+        <Text style={styles.label}>{t("Fan")}</Text>
         <Switch
           value={deviceStates.fan}
           onValueChange={() =>
@@ -59,7 +62,7 @@ const HomeDevicesButtons: React.FC<Props> = ({ deviceStates, setDeviceStates }) 
           size={22}
           color={deviceStates.thermostat ? '#FF6347' : '#555'}
         />
-        <Text style={styles.label}>Thermostat</Text>
+        <Text style={styles.label}>{t("Thermostat")}</Text>
         <Switch
           value={deviceStates.thermostat}
           onValueChange={() =>

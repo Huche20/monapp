@@ -15,6 +15,7 @@ const LanguageBottomSheet = () => {
         <RadioWithTitle title="English" selected={true}/>
         <RadioWithTitle title="Türkçe" selected={false}/>
         <RadioWithTitle title="Français" selected={false}/>
+        <RadioWithTitle title="Espagnol" selected={false}/>
         <AppButton title='Confirm' onPress={()=> {}}/>
 
         </View>

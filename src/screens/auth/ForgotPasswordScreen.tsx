@@ -12,10 +12,12 @@ import * as Yup from 'yup'
 import { sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from '../../config/firebase'
 import { showMessage } from 'react-native-flash-message'
+import { useTranslation } from 'react-i18next'
+
 
 const ForgotPasswordScreen = () => {
   const navigation = useNavigation()
-
+const { t } = useTranslation()
   const ForgotSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Email is required'),
   })
@@ -43,9 +45,9 @@ const ForgotPasswordScreen = () => {
     <AppSaveView style={styles.container}>
       <Text style={styles.mainText}>Smart Home{'\n'}Personal Assistant</Text>
       <Image source={IMAGES.appLogo} style={styles.logo} />
-      <Text style={styles.header}>Forgot Password</Text>
-      <Text style={styles.subText}>Enter your email to reset your password</Text>
-
+      <Text style={styles.header}>{t("Forgot Password")}</Text>
+      <Text style={styles.subText}>{t("Enter your email to reset your password")}</Text>
+    
       <Formik
         initialValues={{ email: '' }}
         validationSchema={ForgotSchema}
@@ -54,7 +56,7 @@ const ForgotPasswordScreen = () => {
         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
           <>
             <AppTextInput
-              placeholder="Enter your email"
+              placeholder={t("Enter your email")}
               value={values.email}
               onChangeText={handleChange('email')}
               onBlur={handleBlur('email')}
@@ -62,16 +64,16 @@ const ForgotPasswordScreen = () => {
             {touched.email && errors.email && (
               <Text style={styles.errorText}>{errors.email}</Text>
             )}
-
+            
             <AppButton
-              title="Reset Password"
+              title={t("Reset Password")}
               onPress={handleSubmit}
               textColor="white"
               style={styles.resetButton}
             />
-
+            
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Text style={styles.backText}>← Back to Login</Text>
+              <Text style={styles.backText}>{t("Back to Login")}</Text>
             </TouchableOpacity>
           </>
         )}
@@ -105,7 +107,7 @@ const styles = StyleSheet.create({
     color: '#007BFF',
   },
   subText: {
-    fontSize: 14,
+    fontSize: 13,
     color: 'gray',
     marginBottom: vs(20),
   },
@@ -121,6 +123,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     color: '#007BFF',
+    fontSize: 15,
     marginTop: vs(20),
     textDecorationLine: 'underline',
   },

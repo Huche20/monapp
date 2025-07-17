@@ -50,10 +50,10 @@
   "Home": "Inicio",
   "Notifications": "Notificaciones",
   "Profile": "Perfil",
-
+   "Change Language":"Cambiar idioma",
   "✏️  Edit Username": "✏️  Editar nombre de usuario",
-  "Language": "🌍  Idiomas",
-  "Logout": "🚪  Cerrar sesión",
+  "🌍  Language": "🌍  Idiomas",
+  "🚪 Logout": "🚪  Cerrar sesión",
   "Are you sure you want to logout?": "¿Estás seguro de que deseas cerrar sesión?",
   "Logout successful": "Cierre de sesión exitoso",
   "No": "No",
@@ -63,5 +63,7 @@
   "Edit Your Username": "Editar tu nombre de usuario",
   "Save": "Guardar",
   "Name updated successfully!": "¡Nombre actualizado con éxito!",
-  "Failed to update name. Try again.": "No se pudo actualizar el nombre. Inténtalo de nuevo."
+  "Failed to update name. Try again.": "No se pudo actualizar el nombre. Inténtalo de nuevo.",
+  "Your Username":"Tu nombre de usuario",
+  "Confirm":"Confirmar"
 }

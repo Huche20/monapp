@@ -52,8 +52,8 @@
   "Profile": "Profil",
 
   "✏️  Edit Username": "✏️  Kullanıcı adını düzenle",
-  "Language": "🌍  Diller",
-  "Logout": "🚪  Çıkış yap",
+  "🌍  Language": "🌍  Diller",
+  "🚪 Logout": "🚪  Çıkış yap",
   "Are you sure you want to logout?": "Çıkış yapmak istediğinizden emin misiniz?",
   "Logout successful": "Çıkış başarılı",
   "No": "Hayır",
@@ -63,5 +63,7 @@
   "Edit Your Username": "Kullanıcı adınızı düzenleyin",
   "Save": "Kaydet",
   "Name updated successfully!": "İsim başarıyla güncellendi!",
-  "Failed to update name. Try again.": "İsim güncellenemedi. Lütfen tekrar deneyin."
+  "Failed to update name. Try again.": "İsim güncellenemedi. Lütfen tekrar deneyin.",
+  "Your Username":"Kullanıcı adınız",
+  "Confirm":"Onayla"
 }

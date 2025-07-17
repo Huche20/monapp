@@ -81,16 +81,15 @@ const ProfileScreen = () => {
           onPress={() => navigation.navigate('EditProfileScreen')}
         />
         <ProfileSectionButton
-          title={t("Language")}
+          title={t("🌍  Language")}
           onPress={() => SheetManager.show("LANG_SHEET")}
         />
         <LanguageBottomSheet />
         <ProfileSectionButton
-          title={t("Logout")}
+          title={t("🚪 Logout")}
           onPress={handleLogout}
         />
-        <AppText>{t("welcome", {userName:"Israell"})}</AppText>
-        <AppText>{t("common.messages.welcome")}</AppText>
+        
       
       </View>
 

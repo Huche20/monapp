@@ -106,7 +106,7 @@ const SignUpScreen = () => {
         }) => (
           <>
             <AppTextInput
-              placeholder={t("Nom d'utilisateur")}
+              placeholder={t("Username")}
               onChangeText={handleChange('username')}
               onBlur={handleBlur('username')}
               value={values.username}

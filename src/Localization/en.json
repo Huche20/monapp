@@ -1,8 +1,3 @@
 {
-    "welcome": "Welcome {{userName}} to the app!",
-    "common":{
-        "messages":{
-            "welcome":"Hello,User"
-            } 
-    }
+    
 }

@@ -42,7 +42,7 @@ const EditProfileScreen = () => {
   return (
     <AppSaveView style={styles.container}>
       <Text style={styles.title}>{t("Edit Your Username")}</Text>
-      <AppTextInput placeholder={t("Votre nom d'utilisateur")} value={name} onChangeText={setName} />
+      <AppTextInput placeholder={t("Your Username")} value={name} onChangeText={setName} />
       <AppButton
         title={t("Save")}
         onPress={handleSave}

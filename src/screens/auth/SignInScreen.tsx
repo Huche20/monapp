@@ -123,7 +123,7 @@ const SignInScreen = () => {
             </TouchableOpacity>
 
             <AppButton
-              title={t("signin button")}
+              title={t("Login")}
               style={styles.signIn}
               textColor={AppColors.pembe}
               onPress={handleSubmit}
@@ -138,7 +138,7 @@ const SignInScreen = () => {
           activeOpacity={0.4}
           onPress={() => navigation.navigate('SignUpScreen')}
         >
-          <Text style={styles.link}>{t("signup button")}</Text>
+          <Text style={styles.link}>{t("Sign Up")}</Text>
         </TouchableOpacity>
       </Text>
     </AppSaveView>

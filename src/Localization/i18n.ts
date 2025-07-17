@@ -25,7 +25,7 @@ const LANGUAGE={
 
 i18n.use(initReactI18next).init({
     resources:LANGUAGE,
-    fallbackLng: "fr",
+    fallbackLng: "tr",
     defaultNS: "translation",
     ns: ["translation"],
     react:{
